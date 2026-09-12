@@ -1,0 +1,666 @@
+{
+  "info": {
+    "_postman_id": "bcd27633-56bf-4a80-ab48-bc481197a601",
+    "name": "DummyJSON API Testing Portfolio",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49166597"
+  },
+  "item": [
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "POST",
+          "item": [
+            {
+              "name": "Positive",
+              "item": [
+                {
+                  "name": "Valid Data",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "auth": {
+                      "type": "basic"
+                    },
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"title\": \"Perfume\",\r\n  \"price\": 49.99\r\n}   ",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Negative",
+              "item": [
+                {
+                  "name": "Missing Title",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code is 400 Bad Request\", function () {\r",
+                          "    pm.response.to.have.status(400);\r",
+                          "});"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"price\": 49.99\r\n}   ",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Missing Price",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code is 400 Bad Request\", function () {\r",
+                          "    pm.response.to.have.status(400);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"title\":\"Perfume\"}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Empty Request",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code is 400 Bad Request\", function () {\r",
+                          "    pm.response.to.have.status(400);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Null Title",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code is 400 Bad Request\", function () {\r",
+                          "    pm.response.to.have.status(400);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Title should not be created as null or empty\", function () {\r",
+                          "    var jsonData = pm.response.json();\r",
+                          "    pm.expect(jsonData.title).to.not.be.null;\r",
+                          "    pm.expect(jsonData.title).to.not.be.empty;\r",
+                          "});"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"title\":null,\r\n\"price\":49.99}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Empty Title",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code is 400 Bad Request\", function () {\r",
+                          "    pm.response.to.have.status(400);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Title should not be created as null or empty\", function () {\r",
+                          "    var jsonData = pm.response.json();\r",
+                          "    pm.expect(jsonData.title).to.not.be.null;\r",
+                          "    pm.expect(jsonData.title).to.not.be.empty;\r",
+                          "});"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"title\":\"\",\r\n\"price\":49.99}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "New Negative Price",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code is 400 Bad Request\", function () {\r",
+                          "    pm.response.to.have.status(400);\r",
+                          "});\r",
+                          "\r",
+                          "pm.test(\"Price must be greater than 0\", function () {\r",
+                          "    var jsonData = pm.response.json();\r",
+                          "    pm.expect(jsonData.price).to.be.above(0);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"title\":\"Perfume\"\r\n,\"price\":-10}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "String Price",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "exec": [
+                          "pm.test(\"Status code is 400 Bad Request\", function () {\r",
+                          "    pm.response.to.have.status(400);\r",
+                          "});\r",
+                          ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"title\":\"Perfume\",\"price\":\"49.99\"}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Boundary",
+              "item": [
+                {
+                  "name": "Price = 0",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n\"title\":\"Free Product\",\r\n\"price\":0\r\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Very Small Positive Price",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"title\":\"Product\",\"price\":0.01}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Very Large Price",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"title\":\"Product\",\"price\":999999999.99}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Single-Character Title",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"title\":\"A\",\"price\":49.99}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Very Long Title",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\"title\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\",\"price\":49.99}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{Base URL}}products/add",
+                      "host": [
+                        "{{Base URL}}products"
+                      ],
+                      "path": [
+                        "add"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "GET",
+          "item": [
+            {
+              "name": "GET",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "// Test 1: Check if status code is 200\r",
+                      "pm.test(\"Status code is 200 OK\", function () {\r",
+                      "    pm.response.to.have.status(200);\r",
+                      "});\r",
+                      "\r",
+                      "// Test 2: Verify that the product ID is correct\r",
+                      "pm.test(\"Product ID in response should be 1\", function () {\r",
+                      "    var jsonData = pm.response.json();\r",
+                      "    pm.expect(jsonData.id).to.eql(1);\r",
+                      "});\r",
+                      "\r",
+                      "// Test 3: Check response time (performance standard)\r",
+                      "pm.test(\"Response time is less than 500ms\", function () {\r",
+                      "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "{{Base URL}}products/1",
+                  "host": [
+                    "{{Base URL}}products"
+                  ],
+                  "path": [
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "PUT",
+          "item": [
+            {
+              "name": "PUT",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Nasa Testing Phone\",\r\n  \"price\": 999\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{Base URL}}products/1",
+                  "host": [
+                    "{{Base URL}}products"
+                  ],
+                  "path": [
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "DEL",
+          "item": [
+            {
+              "name": "DEL",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": []
+                },
+                "url": {
+                  "raw": "{{Base URL}}products/1",
+                  "host": [
+                    "{{Base URL}}products"
+                  ],
+                  "path": [
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "Base URL",
+      "value": ""
+    }
+  ]
+}
