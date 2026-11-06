@@ -40,7 +40,7 @@ Manual and automated API testing of the **Products** endpoints of [DummyJSON](ht
 
 | Total test cases | Passed | Failed | Bugs reported |
 |---|---|---|---|
-| 85 | [X] | [X] | [X] |
+| 85 | 71 | 14 | 14 |
 
 **Main finding:** [one sentence, for example: the API accepts invalid POST bodies (missing title or price, wrong types) and returns 201 Created instead of 400 Bad Request.]
 
