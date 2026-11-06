@@ -1,6 +1,6 @@
 # DummyJSON – Products API Testing
 
-Manual and automated API testing of the **Products** endpoints of [DummyJSON](https://dummyjson.com/docs/products), using **Postman**.
+Manual and Automated API testing of the **Products** endpoints of [DummyJSON](https://dummyjson.com/docs/products), using **Postman**.
 
 ## Scope
 
